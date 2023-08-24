@@ -1,12 +1,13 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import avatar from "../assets/icons/avatar.png"
+import { AuthContext } from "../context/AuthContext";
 
 
 // npm install @headlessui/react @heroicons/react terminalde bu kodu girerek navbar ın hareketlenmesini sağlıyoruz
 
-const currentUser = {displayName:"ipek bilir"}
+/* const currentUser = {displayName:"ipek bilir"} */
 
 
 function classNames(...classes) {
@@ -14,6 +15,9 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+
+  const {currentUser, logout} = useContext(AuthContext)
+
   return (
     <>
       <Disclosure as="nav" className="bg-neutral-800 dark:bg-gray-900 py-3 dark:text-white fixed top-0 w-full z-20">
@@ -32,7 +36,7 @@ export default function Navbar() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src={currentUser.photoURL || avatar}
+                        src={currentUser?.photoURL || avatar}
                         referrerPolicy="no-referrer"   //google ile baglanmada hata almamak icin
                         alt="avatar"
                       />
@@ -76,10 +80,11 @@ export default function Navbar() {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <span
+                          <span 
+                            onClick={() => logout()}
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
                             )}
                           >
                             Logout
