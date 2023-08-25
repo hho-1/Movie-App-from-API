@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react'
-import {GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
+import {GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
 import {auth} from '../auth/firebase-config'
 import { useNavigate } from 'react-router-dom'
-import { toastErrorNot, toastSuccessNot } from '../helpers/TostNotify'
+import { toastErrorNot, toastSuccessNot, toastWarnNot } from '../helpers/TostNotify'
 
 //https://firebase.google.com/docs/auth/web/start
 
@@ -72,11 +72,19 @@ const AuthContextProvider = ({children}) => {
         });
       }
 
-      
+      const forgotPassword  = (email) => {
+        sendPasswordResetEmail(auth, email)
+          .then(() => {
+              toastWarnNot("Emailinizi kontrol ediniz.")
+          })
+          .catch((error) => {
+            toastErrorNot(error.message)
+          });
+      }
 
 
     return (
-        <AuthContext.Provider value={{createUser, signIn, currentUser, logout,signUpGoogle}}>
+        <AuthContext.Provider value={{createUser, signIn, currentUser, logout, signUpGoogle, forgotPassword}}>
             {children}
         </AuthContext.Provider>
     )
