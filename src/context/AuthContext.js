@@ -75,7 +75,7 @@ const AuthContextProvider = ({children}) => {
       const forgotPassword  = (email) => {
         sendPasswordResetEmail(auth, email)
           .then(() => {
-              toastWarnNot("Emailinizi kontrol ediniz.")
+              toastWarnNot("Check your Email")
           })
           .catch((error) => {
             toastErrorNot(error.message)

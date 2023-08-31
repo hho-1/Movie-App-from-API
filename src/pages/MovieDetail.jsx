@@ -15,7 +15,7 @@ const MovieDetail = () => {
 
 
   return (
-    <div className="md:container px-10 mx-auto py-5">
+    <div className="md:container px-10 mx-auto py-5 mt-10">
       <h1 className="text-center text-white text-3xl">{details.title}</h1>
 
       <div className="md:container flex justify-center px-10">
