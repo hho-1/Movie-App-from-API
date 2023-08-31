@@ -1,11 +1,8 @@
-<p>Clarusway<img align="right"
-  src="https://secure.meetupstatic.com/photos/event/3/1/b/9/600_488352729.jpeg"  width="15px"></p>
-
-# Project-009 : Movie App (RP-09)
+# Movie App with TailwindCSS and Firebase
 
 ## Description
 
-Project aims to create a Movie App.
+Project aims to create a Movie App. In the project Firebase authentication with an email as well as with a Google account has been exercised. Tailwind CSS has also been used. Advanced React has been implemented after getting data from The Movie DB API.
 
 ## Project Skeleton
 
@@ -48,13 +45,7 @@ SOLUTION
 
 ### At the end of the project, following topics are to be covered;
 
-- HTML
-
-- CSS
-
-- JS
-
-- ReactJS
+-HTML, CSS, React, Firebase Authentication, TailwindCSS, axios, React toastify
 
 
 ![Project 005 Snapshot](firebase-create-app.gif)
