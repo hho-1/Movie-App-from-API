@@ -45,7 +45,7 @@ SOLUTION
 
 ### At the end of the project, following topics are to be covered;
 
--HTML, CSS, React, Firebase Authentication, TailwindCSS, axios, React toastify
+-HTML, CSS, React, Firebase Authentication, TailwindCSS, axios, React toastify, contextAPI
 
 
 ![Project 005 Snapshot](firebase-create-app.gif)
