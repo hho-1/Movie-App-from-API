@@ -1,6 +1,5 @@
 {
   "name": "movie-app-1",
-  "homepage": "public/index.html",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
