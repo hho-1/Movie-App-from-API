@@ -1,4 +1,4 @@
-# Movie App with TailwindCSS and Firebase
+# Movie App with Redux, React, TailwindCSS, Firebase and MiddleWare
 
 ## Description
 
