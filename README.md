@@ -41,6 +41,10 @@ SOLUTION
 
 ## Outcome
 
+movie-app-api-firebase-tailwind-uuaj.vercel.app
+
+
+
 ![Project Snapshot](movieApp.gif)
 
 ### At the end of the project, following topics are to be covered;
