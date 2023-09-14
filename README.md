@@ -4,7 +4,7 @@
 
 Project aims to create a Movie App. In the project Firebase authentication with an email as well as with a Google account has been exercised. Tailwind CSS has also been used. Advanced React has been implemented after getting data from The Movie DB API.
 
-movie-app-api-firebase-tailwind-uuaj.vercel.app
+https://movie-app-api-firebase-tailwind-uuaj.vercel.app
 
 ## Project Skeleton
 
