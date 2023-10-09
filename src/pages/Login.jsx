@@ -63,7 +63,7 @@ const Login = () => {
             </Link>
           </div>
           <button type="submit" className="btn-danger">Login</button>
-          <button type="button" className="btn-danger flex justify-between text-center" onClick={signUpGoogle}>
+          <button type="button" className="btn-danger flex justify-between text-center" onClick={()=>signUpGoogle()}>
             Continue with Google
             <GoogleIcon color="currentColor" />
           </button>

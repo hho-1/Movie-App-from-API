@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
 import { AuthContext } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Register = () => {
 
@@ -71,8 +72,18 @@ const Register = () => {
             />
             <label htmlFor="floating_password">Password</label>
           </div>
+          <div className="flex justify-center">
+            <span>
+            <Link
+              className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]"
+              to="/login"
+            >
+              I already have an account
+            </Link>
+            </span>
+          </div>
           <button type="submit" className="btn-danger">Register</button>
-          <button type="button" className="btn-danger flex justify-between text-center"  onClick={signUpGoogle}>
+          <button type="button" className="btn-danger flex justify-between text-center"  onClick={()=>signUpGoogle()}>
             Continue with Google
             <GoogleIcon color="currentColor" />
           </button>

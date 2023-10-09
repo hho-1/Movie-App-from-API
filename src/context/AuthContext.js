@@ -8,7 +8,7 @@ import { toastErrorNot, toastSuccessNot, toastWarnNot } from '../helpers/TostNot
 
 export const AuthContext = createContext()
 
-const AuthContextProvider = ({children}) => {
+const AuthContextProvider = ({children}) => {     /* cocuklardan gelen her veriyi kulln */
 
     const [currentUser, setCurrentUser] = useState()
 
@@ -21,7 +21,7 @@ const AuthContextProvider = ({children}) => {
     const createUser = async (email, password, displayName) => {
         try {
             await createUserWithEmailAndPassword(auth, email, password)
-            await updateProfile(auth.currentUser, {
+            await updateProfile(auth.currentUser, {                //Bu kullanici profilini güncellemek icin kullanilan bir firebase metodu, yani hazir aldik
               displayName: displayName,
             }); 
             toastSuccessNot("Successfully registered!")
@@ -51,7 +51,7 @@ const AuthContextProvider = ({children}) => {
       const signUpGoogle = () => {
         const provider = new GoogleAuthProvider()
 
-        signInWithPopup(auth, provider).then((res) => {
+        signInWithPopup(auth, provider).then(() => {
             toastSuccessNot("Successfully logged in with Google")
             navigate("/")
           }).catch((error) => {
@@ -60,7 +60,7 @@ const AuthContextProvider = ({children}) => {
 
       }
 
-      const userTakip = () => {
+      const userTakip = () => {            //bu metod kullanicinin login logout olup olmadigini kontrol eder. 
         onAuthStateChanged(auth, (user) => {
           
           if (user) {
@@ -84,7 +84,7 @@ const AuthContextProvider = ({children}) => {
 
 
     return (
-        <AuthContext.Provider value={{createUser, signIn, currentUser, logout, signUpGoogle, forgotPassword}}>
+        <AuthContext.Provider value={{createUser, signIn, currentUser, logout, signUpGoogle, forgotPassword}}>   {/* Burada cocuklara hem degiskenleri hem de fonksiyonlari gönderiyoruz */}
             {children}
         </AuthContext.Provider>
     )

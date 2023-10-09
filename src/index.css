@@ -77,8 +77,8 @@ body {
 }
 
 .tag {
+  padding: .2rem .6rem;
   border-radius: 5px;
-  padding: 0.7rem;
   font-weight: bold;
   width: 3rem;
   text-align: center;

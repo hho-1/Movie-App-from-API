@@ -22,13 +22,14 @@ const MovieCard = ({title, poster_path, overview, vote_average, id}) => {
         loading="lazy"
         src={IMG_API + poster_path}
         alt="movie-card"
+        className='mb-3'
       />
       <div className="flex align-baseline justify-between p-1 text-white">
         <h5>{title}</h5>
 
         {currentUser && (
-          <span className="">
-            {vote_average}
+          <span className={`tag ${vote_average < 7 ? "red" : (vote_average > 8 ? "green" : "orange")}`}>    {/* buraya dikkat et. className icine condition girdik */}
+            {vote_average.toFixed(1)}
           </span>
         )}
       </div>

@@ -26,9 +26,17 @@ const Main = () => {
           placeholder="Search a movie..."
           onChange={(e)=> setSearch(e.target.value)}
         />
-        <button className="btn-danger-bordered" type="submit">
-          Search
-        </button>
+        {
+          search ? 
+            <button className="btn-danger-bordered" type="submit">
+              Search
+            </button> 
+          :
+            <button className="btn-danger-bordered disabled:opacity-75 disabled:pointer-events-none" disabled>
+              Search
+            </button>
+        }
+        
       </form>
       <div className="flex justify-center flex-wrap">
         {

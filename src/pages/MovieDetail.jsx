@@ -3,21 +3,30 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
 const MovieDetail = () => {
-  const { id } = useParams();
+  const { id } = useParams();        //Path'deki degiskeni useParams'la yakaliyoruz.
   const [details, setDetails] = useState("");
   const API_KEY = process.env.REACT_APP_TMDB_KEY;
   const movie_detail_api = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
-   const imageUrl = "https://image.tmdb.org/t/p/w1280";
+  const imageUrl = "https://image.tmdb.org/t/p/w1280";
+  /* const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
+  const videoUrlYouTube = "https://www.youtube.com/watch?v=";
+  const [video, setVideo] = useState("") */       //!Burada filmin fragman videosunu da aldim ama youtube buradan yayinlamaya izin vermiyor, bazi seyler yapmak lazim, simdi ugrasamadim
+  
 
-  useEffect(() => {
+  useEffect(() => {        //axios ile setDetails birlikte useEffect disinda olursa sonsuz döngü olur
     axios.get(movie_detail_api).then((res) => setDetails(res.data));
   }, [movie_detail_api]);
-
+  
+  /* useEffect(() => {        //axios ile setDetails birlikte useEffect disinda olursa sonsuz döngü olur
+    axios.get(videoUrl).then((res) => setVideo(videoUrlYouTube + res.data.results[0].key));
+  }, [videoUrl]); */
 
   return (
     <div className="md:container px-10 mx-auto py-5 mt-10">
       <h1 className="text-center text-white text-3xl">{details.title}</h1>
-
+      {/* <div className="md:container flex justify-center px-10">
+        {video}
+      </div> */}
       <div className="md:container flex justify-center px-10">
         <div className="flex flex-col lg:flex-row max-w-6xl rounded-lg bg-gray-100 shadow-lg">
           <img

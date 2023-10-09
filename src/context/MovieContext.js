@@ -12,10 +12,10 @@ const MovieContextProvider = ({children}) => {
   const [movie, setMovie] = useState([])
 
   useEffect(() => {
-    getirMovie(FULL_API)
+    getirMovie(FULL_API)       //ilk seferde son cikan 20 filmi getiriyor. Arama yapildiginda getorMovies fonksiyonuyla getirmek icin asagidaki fonksiyonun parametresini url yaptik.
   }, [])
   
-  const getirMovie = (url) => {
+  const getirMovie = (url) => {        //Eger dataya cok yerde ihtiyacin olacaksa bir fonksiyon icine alip useEffect'le sarmallaman iyi olur
     axios.get(url).then((res) => {
       setMovie(res.data.results)
   } )
@@ -23,7 +23,7 @@ const MovieContextProvider = ({children}) => {
   
 
   return (
-    <MovieContext.Provider value={{movie, getirMovie}}>
+    <MovieContext.Provider value={{movie, getirMovie}}>  {/* iki süslüyü unutma */}
       {children}
       </MovieContext.Provider>
   )

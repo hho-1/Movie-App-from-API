@@ -7,7 +7,7 @@ import { AuthContext } from "../context/AuthContext";
 
 // npm install @headlessui/react @heroicons/react terminalde bu kodu girerek navbar ın hareketlenmesini sağlıyoruz
 
-/* const currentUser = {displayName:"ipek bilir"} */
+/* const currentUser = {displayName:"......"} */
 
 
 function classNames(...classes) {
@@ -101,7 +101,7 @@ export default function Navbar() {
       
      
       </Disclosure>
-      <div className="h-[55px]"></div>
+      <div className="h-[55px]"></div>         {/* Navbar register/login sayfasinin üstüne geldigi icin asagi kaydirmak icin bunu yaptik */}
     </>
   );
 }
