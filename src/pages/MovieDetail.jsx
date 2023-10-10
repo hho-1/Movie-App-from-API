@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
-const MovieDetail = () => {
+const MovieDetail = ({darkMode}) => {
   const { id } = useParams();        //Path'deki degiskeni useParams'la yakaliyoruz.
   const [details, setDetails] = useState("");
   const API_KEY = process.env.REACT_APP_TMDB_KEY;
@@ -29,7 +29,7 @@ const MovieDetail = () => {
 
   return (
     <div className="md:container px-10 mx-auto py-5 mt-10">
-      <h1 className="text-center text-white text-3xl">{details.title}</h1>
+      <h1 className={`detailTitle text-center text-3xl ${darkMode ? "dark" : ""}`}>{details.title}</h1>
       {/* <div className="md:container flex justify-center px-10">
         {video}
       </div> */}

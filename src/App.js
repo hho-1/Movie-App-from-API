@@ -5,11 +5,18 @@ import { ToastContainer } from "react-toastify";
 import MovieContextProvider from "./context/MovieContext";
 
 const App = () => {
+
+  const [darkMode, setDarkMode] = React.useState(true)
+
+  function toggleDarkMode() {
+    setDarkMode(!darkMode)
+  }
+
   return (
-    <div className="dark:bg-[#23242a] min-h-screen">
+    <div className={`app ${darkMode ? "dark" : ""}`}>
       <AuthContextProvider>
         <MovieContextProvider>
-          <AppRouter/>
+          <AppRouter darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
           <ToastContainer/>
         </MovieContextProvider>
         

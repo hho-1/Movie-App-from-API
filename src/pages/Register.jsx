@@ -3,7 +3,7 @@ import GoogleIcon from "../assets/icons/GoogleIcon";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 
-const Register = () => {
+const Register = ({darkMode}) => {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -20,11 +20,11 @@ const Register = () => {
   
 
   return (
-    <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a]">
+    <div className={`overflow-hidden flex-1 h-screen justify-center items-center registerPage ${darkMode ? "dark" : ""}`}>
       <div
         className={`form-container mt-[5vh] w-[380px] h-[580px]`}
       >
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={`registerForm ${darkMode ? "dark" : ""}`}>
           <h2 className="text-red-main text-2xl font-[500] text-center tracking-[0.1em] mb-3">
             Sign Up
           </h2>
@@ -37,7 +37,7 @@ const Register = () => {
               required
               onChange={(e) => setFirstName(e.target.value)}
             />
-            <label htmlFor="floating_email">First Name</label>
+            <label htmlFor="floating_text">First Name</label>
           </div>
           <div className="relative z-0 w-full mb-6 group">
             <input

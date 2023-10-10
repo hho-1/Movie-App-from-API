@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
-const MovieCard = ({title, poster_path, overview, vote_average, id}) => {
+const MovieCard = ({title, poster_path, overview, vote_average, id, darkMode}) => {
 
   let navigate = useNavigate()
 
@@ -14,7 +14,7 @@ const MovieCard = ({title, poster_path, overview, vote_average, id}) => {
 
   return (
     <div
-      className="movie"
+      className={`movie ${darkMode ? "dark" : ""}`}
       id="container"
       onClick={()=>navigate("/details/" + id)}
     >

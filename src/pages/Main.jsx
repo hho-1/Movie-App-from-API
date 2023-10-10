@@ -3,7 +3,7 @@ import {MovieContext} from "../context/MovieContext"
 import MovieCard from "../components/MovieCard"
 
 
-const Main = () => {
+const Main = ({darkMode}) => {
 
   const {movie, getirMovie} = useContext(MovieContext)
   const [search, setSearch] = useState("")
@@ -15,14 +15,17 @@ const Main = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     getirMovie(SEARCH_API + search)
+    setSearch("")
   }
 
   return (
-    <>
-      <form className="flex justify-center p-2 mt-10 " onSubmit={handleSubmit}>
+    <div>
+      <form className={`searchForm flex justify-center p-2 mt-10 ${darkMode ? "dark" : ""}`} onSubmit={handleSubmit}>
         <input
           type="search"
-          className="w-80 h-8 rounded-md p-1 m-2"
+          id="search"
+          value={search}
+          className={`w-80 h-8 rounded-md p-1 m-2 searchInput text-lg`}
           placeholder="Search a movie..."
           onChange={(e)=> setSearch(e.target.value)}
         />
@@ -40,10 +43,10 @@ const Main = () => {
       </form>
       <div className="flex justify-center flex-wrap">
         {
-          movie.map((a) => <MovieCard key={a.id} {...a} />)
+          movie.map((a) => <MovieCard darkMode={darkMode} key={a.id} {...a} />)
         }
       </div>
-    </>
+    </div>
   );
 };
 
