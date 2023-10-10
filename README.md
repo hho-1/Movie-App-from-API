@@ -1,8 +1,8 @@
-# Movie App with React, TailwindCSS, Firebase, Toastify, ContextAPI and MiddleWare
+# Movie App with React, TailwindCSS, Firebase, Toastify, axios and ContextAPI
 
 ## Description
 
-Project aims to create a Movie App. In the project Firebase authentication with an email as well as with a Google account has been exercised. Tailwind CSS has also been used. Advanced React has been implemented after getting data from The Movie DB API.
+Project aims to create a Movie App, which is getting data from The Movie DB API. In the project Firebase authentication with an email as well as with a Google account has been implemented. Tailwind CSS has been used. Page always shows 20 movies independent from search. One can easily sign up and login and then see details of recently released movies, including trailers. 
 
 https://movie-app-api-firebase-tailwind-uuaj.vercel.app
 
