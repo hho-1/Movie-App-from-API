@@ -44,7 +44,7 @@ SOLUTION
 
 ## Outcome
 
-![Project Snapshot](movieApp.gif)
+![Project Snapshot](movie-app-gif.gif)
 
 ### At the end of the project, following topics are to be covered;
 
