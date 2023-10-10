@@ -8,10 +8,12 @@ const MovieDetail = () => {
   const API_KEY = process.env.REACT_APP_TMDB_KEY;
   const movie_detail_api = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
   const imageUrl = "https://image.tmdb.org/t/p/w1280";
-  /* const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
-  const videoUrlYouTube = "https://www.youtube.com/watch?v=";
-  const [video, setVideo] = useState("") */       //!Burada filmin fragman videosunu da aldim ama youtube buradan yayinlamaya izin vermiyor, bazi seyler yapmak lazim, simdi ugrasamadim
+  //const videoLink = "https://www.youtube.com/watch?v=";
+  const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
+  /* const videoUrlYouTube = "https://www.youtube.com/watch?v=";
+  const [video, setVideo] = useState("")  */       //!Burada filmin fragman videosunu da aldim ama youtube buradan yayinlamaya izin vermiyor, bazi seyler yapmak lazim, simdi ugrasamadim
   
+  const [link, setLink] = useState("")
 
   useEffect(() => {        //axios ile setDetails birlikte useEffect disinda olursa sonsuz döngü olur
     axios.get(movie_detail_api).then((res) => setDetails(res.data));
@@ -20,6 +22,10 @@ const MovieDetail = () => {
   /* useEffect(() => {        //axios ile setDetails birlikte useEffect disinda olursa sonsuz döngü olur
     axios.get(videoUrl).then((res) => setVideo(videoUrlYouTube + res.data.results[0].key));
   }, [videoUrl]); */
+
+  useEffect(() => {        
+    axios.get(videoUrl).then((res) => setLink(`https://www.youtube.com/watch?v=${res.data.results[0].key}`));
+  }, [videoUrl]); 
 
   return (
     <div className="md:container px-10 mx-auto py-5 mt-10">
@@ -40,6 +46,9 @@ const MovieDetail = () => {
                 Overview
               </h5>
               <p className="text-gray-700 text-base mb-4">{details.overview}</p>
+              <br />
+              <br /><br />
+              <p className="text-gray-900 text-xl font-medium mb-2">Click <a href={link} target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-800">here</a> for official trailer</p>
             </div>
             <ul className="bg-gray-100 rounded-lg border border-gray-400 text-gray-900">
               <li className="px-6 py-2 border-b border-gray-400 w-full rounded-t-lg">
