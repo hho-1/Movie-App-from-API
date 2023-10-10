@@ -23,6 +23,7 @@ SOLUTION
 │    │     └── Navbar.js
 │    ├── context
 │    │     └── AuthContext.js
+│    │     └── MovieContext.js
 │    ├── pages
 │    │     ├── Login.js
 │    │     ├── Register.js
