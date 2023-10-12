@@ -1,4 +1,4 @@
-# Movie App with React, TailwindCSS, Firebase, Toastify, axios and ContextAPI
+# Movie App with Redux, TailwindCSS, Firebase, Toastify, axios and ContextAPI
 
 ## Description
 
